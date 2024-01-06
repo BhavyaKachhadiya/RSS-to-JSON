@@ -10,7 +10,7 @@ app.use(cors());
 
 // API endpoint to convert RSS to JSON
 app.get('/', async (req, res) => {
-  res.send("Hello")
+  res.send("Vist https://github.com/BhavyaKachhadiya/RSS-to-JSON for documentation")
 });
 app.get('/api', async (req, res) => {
   try {
