@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>documentation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 768px;
+            margin: auto;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RSS to JSON API Documentation</h1>
+        <h3>Introduction</h3>
+          <p>  Welcome to the RSS to JSON API documentation. This API allows you to convert RSS feeds to JSON format. The API is built using Node.js with Express and utilizes the 'rss-parser' library for parsing RSS feeds.</p>
+
+          <h3>Base URL</h3>
+          <pre>
+            <code>http://localhost:3000</code>
+          </pre>
+          <h3>Endpoints</h3>
+          <p>Convert RSS to JSON</p>
+          <ul>
+            <li>Endpoint: /api</li>
+            <li>Method: GET</li>
+            <li>Parameters:
+                <ul>
+                    <li>url: The URL of the RSS feed to convert.</li>
+                </ul>
+            </li>
+          </ul>
+          <h3>Example</h3>
+          <pre>
+            <code>
+                curl http://localhost:3000/api?url=https://example.com/rss-feed
+            </code>
+        </pre>
+
+        <h3>Response</h3>
+        <p>The API responds with a JSON representation of the RSS feed.</p>
+        <pre>
+            <code>
+                {
+                    "items": [
+                    {
+                    "creator": "PavanButke",
+                    "title": "Space Complexity for Java Dev : Beginners",
+                    "link": "https://dev.to/dashgriva/space-complexity-for-java-dev-beginners-5688",
+                    "pubDate": "Sun, 07 Jan 2024 06:41:02 +0000",
+                    "dc:creator": "PavanButke",
+                    "content": "Here some content From API"
+                    "contentSnippet": "Here some content From API",
+                    "guid": "https://dev.to/dashgriva/space-complexity-for-java-dev-beginners-5688",
+                    "isoDate": "2024-01-07T06:41:02.000Z"
+                    }]
+                }
+            </code>
+        </pre>
+            
+            
+    </div>
+</body>
+</html>
