@@ -12,9 +12,10 @@ app.use(express.static(path.join(__dirname,'views')))
 app.use(express.json());
 app.use(cors());
 
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 // API endpoint to convert RSS to JSON
 app.get('/', async (req, res) => {
-  // res.send("Vist  https://github.com/BhavyaKachhadiya/RSS-to-JSON for documentation")
   res.render('index.html')
 });
 app.get('/api', async (req, res) => {
@@ -46,7 +47,12 @@ const swaggerOptions = {
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+app.use(
+  "/api-docs",
+  swaggerUI.serve,
+  swaggerUI.setup(swaggerSpec, { customCssUrl: CSS_URL })
+);
 
 // API endpoint to convert RSS to JSON
 /**
