@@ -12,8 +12,6 @@ app.use(express.static(path.join(__dirname,'views')))
 app.use(express.json());
 app.use(cors());
 
-const CSS_URL =
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 // API endpoint to convert RSS to JSON
 app.get('/', async (req, res) => {
   res.render('index.html')
@@ -43,16 +41,17 @@ const swaggerOptions = {
       description: 'Converts RSS feeds to JSON format.',
     },
   },
+  servers: [
+    {
+      url: "https://rss-to-json-bhavya.vercel.app/",
+      description: "My API Documentation",
+    },
+  ],
   apis: ['index.cjs'],
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
-// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
-app.use(
-  "/api-docs",
-  swaggerUI.serve,
-  swaggerUI.setup(swaggerSpec, { customCssUrl: CSS_URL })
-);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 // API endpoint to convert RSS to JSON
 /**
