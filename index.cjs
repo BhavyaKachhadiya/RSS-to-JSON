@@ -2,6 +2,7 @@ const express = require('express');
 const Parser = require('rss-parser'); // Note: Use 'rss-parser' instead of 'parser'
 const cors = require('cors');
 const path = require("path");
+import morgan from "morgan";
 import bodyParser from "body-parser";
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'views')))
 // Middleware to parse JSON
 app.use(express.json());
+app.use(morgan("dev"));
 app.use(cors());
 
 // API endpoint to convert RSS to JSON
