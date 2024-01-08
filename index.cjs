@@ -2,11 +2,13 @@ const express = require('express');
 const Parser = require('rss-parser'); // Note: Use 'rss-parser' instead of 'parser'
 const cors = require('cors');
 const path = require("path");
+import bodyParser from "body-parser";
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const app = express();
 const PORT = 3000;
 
+app.use(bodyParser.json()); 
 app.use(express.static(path.join(__dirname,'views')))
 // Middleware to parse JSON
 app.use(express.json());
