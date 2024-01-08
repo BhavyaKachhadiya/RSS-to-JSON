@@ -2,8 +2,8 @@ const express = require('express');
 const Parser = require('rss-parser'); // Note: Use 'rss-parser' instead of 'parser'
 const cors = require('cors');
 const path = require("path");
-import morgan from "morgan";
-import bodyParser from "body-parser";
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const app = express();
