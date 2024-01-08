@@ -1,72 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>documentation</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .container {
-            width: 768px;
-            margin: auto;
-            height: 100vh;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSS to JSON API Documentation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    main {
+      line-height: 1.6;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      color: #555;
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      padding: 10px;
+      border-radius: 5px;
+      overflow: auto;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+    .inner{
+        margin-left: 20px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>RSS to JSON API Documentation</h1>
-        <h3>Introduction</h3>
-          <p>  Welcome to the RSS to JSON API documentation. This API allows you to convert RSS feeds to JSON format. The API is built using Node.js with Express and utilizes the 'rss-parser' library for parsing RSS feeds.</p>
-
-          <h3>Base URL</h3>
-          <pre>
-            <code>http://localhost:3000</code>
-          </pre>
-          <h3>Endpoints</h3>
-          <p>Convert RSS to JSON</p>
-          <ul>
-            <li>Endpoint: /api</li>
-            <li>Method: GET</li>
-            <li>Parameters:
-                <ul>
-                    <li>url: The URL of the RSS feed to convert.</li>
-                </ul>
-            </li>
-          </ul>
-          <h3>Example</h3>
-          <pre>
-            <code>
-                curl http://localhost:3000/api?url=https://example.com/rss-feed
-            </code>
-        </pre>
-
-        <h3>Response</h3>
+  <div class="container">
+    <header>
+      <h1>RSS to JSON API Documentation</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Introduction</h2>
+        <p>Welcome to the RSS to JSON API documentation. This API allows you to convert RSS feeds to JSON format. The API is built using Node.js with Express and utilizes the 'rss-parser' library for parsing RSS feeds.</p>
+      </section>
+      <section>
+        <h2>Base URL</h2>
+        <pre  id="baseURL"><code>https://rss-to-json-bhavya.vercel.app</code></pre> <button onclick="copyToClipboard('#baseURL')">Copy URL</button>
+      </section>
+      <section>
+        <h2>Endpoints</h2>
+        <h3>Convert RSS to JSON</h3>
+        <ul>
+          <li>Endpoint: /api</li>
+          <li>Method: GET</li>
+          <li>Parameters:
+            <ul>
+              <li class="inner">url: The URL of the RSS feed to convert.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Example</h3>
+        <pre  id="example"><code>curl https://rss-to-json-bhavya/api?url=https://dev.to/rss</code></pre> <button onclick="copyToClipboard('#example')">Copy Example</button>
+      </section>
+      <section>
+        <h2>Response</h2>
         <p>The API responds with a JSON representation of the RSS feed.</p>
-        <pre>
-            <code>
-                {
-                    "items": [
-                    {
-                    "creator": "PavanButke",
-                    "title": "Space Complexity for Java Dev : Beginners",
-                    "link": "https://dev.to/dashgriva/space-complexity-for-java-dev-beginners-5688",
-                    "pubDate": "Sun, 07 Jan 2024 06:41:02 +0000",
-                    "dc:creator": "PavanButke",
-                    "content": "Here some content From API"
-                    "contentSnippet": "Here some content From API",
-                    "guid": "https://dev.to/dashgriva/space-complexity-for-java-dev-beginners-5688",
-                    "isoDate": "2024-01-07T06:41:02.000Z"
-                    }]
-                }
-            </code>
-        </pre>
-            
-            
-    </div>
+        <pre  id="response"><code>{
+  "items": [
+    {
+      "creator": "PavanButke",
+      "title": "Space Complexity for Java Dev : Beginners",
+      "link": "https://dev.to/dashgriva/space-complexity-for-java-dev-beginners-5688",
+      "pubDate": "Sun, 07 Jan 2024 06:41:02 +0000",
+      "dc:creator": "PavanButke",
+      "content": "Here some content From API",
+      "contentSnippet": "Here some content From API",
+      "guid": "https://dev.to/dashgriva/space-complexity-for-java-dev-beginners-5688",
+      "isoDate": "2024-01-07T06:41:02.000Z"
+    }
+  ]
+}</code></pre>  <button onclick="copyToClipboard('#response')">Copy Response</button>
+      </section>
+    </main>
+    <footer>
+      &copy; 2024 RSS to JSON API Documentation
+    </footer>
+  </div>
+  <script>
+    function copyToClipboard(selector) {
+      /* Get the text content of the specified element */
+      var textToCopy = document.querySelector(selector).innerText;
+  
+      /* Create a temporary textarea element to hold the text and select it */
+      var tempTextArea = document.createElement("textarea");
+      tempTextArea.value = textToCopy;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      
+      /* Copy the selected text to the clipboard */
+      document.execCommand("copy");
+  
+      /* Remove the temporary textarea */
+      document.body.removeChild(tempTextArea);
+  
+      /* Provide some visual feedback (optional) */
+      alert("Copied to clipboard!");
+    }
+  </script>
 </body>
 </html>
